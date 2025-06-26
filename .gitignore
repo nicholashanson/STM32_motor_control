@@ -17,3 +17,6 @@ Release/
 # System files
 .DS_Store
 Thumbs.db
+
+# Test executables
+test_*
