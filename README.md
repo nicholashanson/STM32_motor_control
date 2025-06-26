@@ -16,10 +16,10 @@ UART is set up for integration with QEMU.
   <img src="Images/workflow.jpg" width="600">
 </p>
 
-1. **Test-Harness Synchronization**: Any changes made by code generated in CubeMX are refected in the
+1. **Test-Harness Synchronization**: Any changes made by code-regeneration in CubeMX are reflected in the
    test-harness, ensuring the test environment is identical to the production environment.
 2. **UnityTest**: Unit-test framework well suited to embedded developement.
-3. **Qemu**: Qemu provides support for STM32 simulion through several development boards. This allos 
+3. **Qemu**: Provides support for STM32 simulion through several development boards. This allos 
    to test first on-host.
-4. **Proteus**: Proteus provides emulation for STM32 MCUs, allowing us to run firmware and do signal
+4. **Proteus**: Provides emulation for STM32 MCUs, allowing us to run firmware and do signal
    analysis.
