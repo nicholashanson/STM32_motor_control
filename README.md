@@ -11,5 +11,5 @@ UART is set up for integration with QEMU.
 
 
 <p align="center">
-  <img src="Images/worflow.jpg" width="600">
+  <img src="Images/workflow.jpg" width="600">
 </p>
