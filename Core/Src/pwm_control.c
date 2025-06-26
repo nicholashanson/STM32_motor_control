@@ -1,15 +1,6 @@
-/*
- * pwm.c
- *
- *  Created on: Jun 26, 2025
- *      Author: Nick Hanson
- */
-#ifndef PWM_CONTROL_H
-#define PWM_CONTROL_H
+#include "pwm_control.h"
 
-#include <stdint.h>
-
-uint16_t calculate_pwm_duty_cycle(uint8_t percent, uint16_t arr);
-
-#endif // PWM_CONTROL_H
-
+uint16_t calculate_pwm_duty_cycle(uint8_t percent, uint16_t arr) {
+    if (percent > 100) percent = 100;
+    return (percent * arr) / 100;
+}

@@ -1,6 +1,8 @@
-#include "pwm_control.h"
+#ifndef PWM_CONTROL_H
+#define PWM_CONTROL_H
 
-uint16_t calculate_pwm_duty_cycle(uint8_t percent, uint16_t arr) {
-    if (percent > 100) percent = 100;
-    return (percent * arr) / 100;
-}
+#include <stdint.h>
+
+uint16_t calculate_pwm_duty_cycle(uint8_t percent, uint16_t arr);
+
+#endif // PWM_CONTROL_H
