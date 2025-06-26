@@ -16,7 +16,7 @@ UART is set up for integration with QEMU.
   <img src="Images/workflow.jpg" width="600">
 </p>
 
-1. **Test-Harness Synchronization**: Any changes made by code-regeneration in CubeMX are reflected in the
+1. **Test-Harness Synchronization**: Any changes made by code-regeneration in STM32 CubeMX are reflected in the
    test-harness, ensuring the test environment is identical to the production environment.
 2. **UnityTest**: Unit-test framework well suited to embedded developement.
 3. **Qemu**: Provides support for STM32 simulion through several development boards. This allos 
