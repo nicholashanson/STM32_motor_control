@@ -8,7 +8,7 @@ Motor control project using TDD ( Unity ) with the goal of integrating it into a
 
 UART is set up for integration with QEMU.
 
-
+# Development Workflow
 
 <p align="center">
   <img src="Images/workflow.jpg" width="600">
