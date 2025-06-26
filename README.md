@@ -7,3 +7,9 @@
 Motor control project using TDD ( Unity ) with the goal of integrating it into a turntable system.
 
 UART is set up for integration with QEMU.
+
+
+
+<p align="center">
+  <img src="Images/worflow.jpg" width="600">
+</p>
