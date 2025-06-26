@@ -23,6 +23,7 @@
 /* USER CODE BEGIN Includes */
 #include "string.h"
 #include "stdio.h"
+#include "stdint.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -97,13 +98,24 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  const char* welcome_msg = "UART test: Hello from STM32!\r\n";
+  HAL_UART_Transmit(&huart1, (uint8_t*)welcome_msg, strlen(welcome_msg), HAL_MAX_DELAY);
+
+  char *startup_msg = "hello\r\n";
+  HAL_UART_Transmit(&huart1, (uint8_t*)startup_msg, strlen(startup_msg), HAL_MAX_DELAY);
+
   while (1)
   {
-    /* USER CODE END WHILE */
-    HAL_UART_Receive(&huart1, rx_data, sizeof(rx_data), HAL_MAX_DELAY);
 
-	snprintf((char*)tx_data, sizeof(tx_data), "You said: %s\r\n", rx_data);
-    HAL_UART_Transmit(&huart1, tx_data, strlen((char*)tx_data), HAL_MAX_DELAY);
+    //HAL_UART_Receive(&huart1, rx_data, sizeof(rx_data), HAL_MAX_DELAY);
+
+	  //snprintf((char*)tx_data, sizeof(tx_data), "You said: %s\r\n", rx_data);
+    //HAL_UART_Transmit(&huart1, tx_data, strlen((char*)tx_data), HAL_MAX_DELAY);
+
+    HAL_UART_Transmit(&huart1, (uint8_t*)startup_msg, strlen(startup_msg), HAL_MAX_DELAY);
+    HAL_Delay(1000);  // Delay to make sure we see the transmission
+    /* USER CODE END WHILE */
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -120,8 +132,8 @@ void SystemClock_Config(void)
 
   /** Configure the main internal regulator output voltage
   */
-  __HAL_RCC_PWR_CLK_ENABLE();
-  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+  //__HAL_RCC_PWR_CLK_ENABLE();
+  //__HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
 
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
@@ -130,10 +142,12 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+  /*
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();
   }
+  */
 
   /** Initializes the CPU, AHB and APB buses clocks
   */
@@ -144,10 +158,12 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
+  /*
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
   {
     Error_Handler();
   }
+  */
 }
 
 /**

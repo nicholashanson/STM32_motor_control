@@ -14,7 +14,7 @@ LINKER_SCRIPT="../STM32F407VGTX_FLASH.ld"
 
 # Output
 BUILD_DIR="build"
-OUTPUT_ELF="$BUILD_DIR/firmware.elf"
+OUTPUT_ELF="$BUILD_DIR/firmware_test.elf"
 SPEC_FLAGS="-specs=nosys.specs -u _printf_float"  # disable semihosting
 
 # Compiler flags
@@ -46,7 +46,7 @@ arm-none-eabi-gcc $CFLAGS $INCLUDES -DSTM32F407xx \
 
 echo "3) Compiling application sources..."
 arm-none-eabi-gcc $CFLAGS $INCLUDES -DSTM32F407xx \
-  -c Src/main.c -o "$BUILD_DIR/main.o"
+  -c ../Test/test_main.c -o "$BUILD_DIR/test_main.o"
 
 echo "4) Compiling syscall and sysmem support..."
 arm-none-eabi-gcc $CFLAGS $INCLUDES -DSTM32F407xx \
@@ -54,15 +54,20 @@ arm-none-eabi-gcc $CFLAGS $INCLUDES -DSTM32F407xx \
 arm-none-eabi-gcc $CFLAGS $INCLUDES -DSTM32F407xx \
   -c Src/sysmem.c -o "$BUILD_DIR/sysmem.o"
 
-echo "5) Linking all objects into ELF..."
+echo "5) Compiling unity..."
+arm-none-eabi-gcc $CFLAGS $INCLUDES -DSTM32F407xx \
+  -c ../Unity/unity.c -o "$BUILD_DIR/unity.o"
+
+echo "6) Linking all objects into ELF..."
 arm-none-eabi-gcc $CFLAGS $SPEC_FLAGS \
   "$STARTUP_FILE" \
   "$BUILD_DIR/system.o" \
   "$BUILD_DIR/it.o" \
   "$BUILD_DIR/msp.o" \
-  "$BUILD_DIR/main.o" \
+  "$BUILD_DIR/test_main.o" \
   "$BUILD_DIR/syscalls.o" \
   "$BUILD_DIR/sysmem.o" \
+   "$BUILD_DIR/unity.o" \
   $HAL_OBJECT_FILES \
   -T"$LINKER_SCRIPT" \
   -Wl,--no-gc-sections \
