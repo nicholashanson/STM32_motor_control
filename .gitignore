@@ -1,0 +1,19 @@
+# STM32CubeIDE auto-generated files
+Debug/
+Release/
+.build/
+*.o
+*.elf
+*.bin
+*.hex
+*.map
+*.log
+*.lst
+
+# IDE metadata
+.settings/
+.metadata/
+
+# System files
+.DS_Store
+Thumbs.db
