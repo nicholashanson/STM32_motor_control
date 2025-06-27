@@ -67,7 +67,7 @@ Faster test execution, easier CI integration, and quicker development cycles.
 ## Development Workflow
 
 <p align="center">
-  <img src="Images/workflow.jpg" width="600">
+  <img src="Images/workflow.jpg" width="900">
 </p>
 
 1. **Test-Harness Synchronization**: Any changes made by code-regeneration in STM32 CubeMX are reflected in the
