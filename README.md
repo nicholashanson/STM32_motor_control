@@ -76,3 +76,7 @@ Faster test execution, easier CI integration, and quicker development cycles.
 3. **Qemu**: Qemu provides an on-host test environment through hardware emulation. It has in-built support for STM32 emulation through several development boards. This allows us
    to test early on-host, giving a tight development loop perfect for TDD.
 4. **Proteus**: Proteus provides emulation for STM32 MCUs, like Qemu, but also models pins, allowing us to run firmware and do signal analysis. This lets us treat the MCU as a black-box with clear outputs that we can test before integration with peripherals.
+
+<p align="center">
+  <img src="Images/test_structure.jpg" width="600">
+</p>
