@@ -57,9 +57,7 @@ Reduces reliance on physical hardware and enables testing of edge cases with pre
 - [ ] Implement mocks for I2C, UART, ADC, timers, etc.
 - [ ] Simulate fault conditions, timing delays, and sensor inputs in tests
 
----
-
-### 💻 4. Host-First Testing Strategy
+### 4. Host-First Testing Strategy
 
 **Objective:**  
 Run the majority of tests natively on the development machine or QEMU.
@@ -71,8 +69,6 @@ Faster test execution, easier CI integration, and quicker development cycles.
 - [ ] Compile tests for host platform (e.g. using GCC or QEMU)
 - [ ] Use target hardware only for final integration and signal validation
 - [ ] Automate test runs in CI using native builds
-
----
 
 ## Development Workflow
 
