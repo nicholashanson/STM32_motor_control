@@ -77,6 +77,8 @@ Faster test execution, easier CI integration, and quicker development cycles.
    to test early on-host, giving a tight development loop perfect for TDD.
 4. **Proteus**: Proteus provides emulation for STM32 MCUs, like Qemu, but also models pins, allowing us to run firmware and do signal analysis. This lets us treat the MCU as a black-box with clear outputs that we can test before integration with peripherals.
 
+### Interfaces and Mocking
+
 <p align="center">
   <img src="Images/test_structure.jpg" width="600">
 </p>
@@ -86,5 +88,5 @@ Faster test execution, easier CI integration, and quicker development cycles.
 The goal is to make the motor control meet the requirements of the system shown below.
 
 <p align="center">
-  <img src="Images/integrated_system.jpg" width="600">
+  <img src="Images/integrated_system.jpg" width="400">
 </p>
