@@ -80,3 +80,11 @@ Faster test execution, easier CI integration, and quicker development cycles.
 <p align="center">
   <img src="Images/test_structure.jpg" width="600">
 </p>
+
+## Target System
+
+The goal is to make the motor control meet the requirements of the system shown below.
+
+<p align="center">
+  <img src="Images/integrated_system.jpg" width="600">
+</p>
