@@ -5,15 +5,15 @@ uint16_t calculate_pwm_duty_cycle(uint8_t percent, uint16_t arr) {
     return (percent * arr) / 100;
 }
 
-void PWM_Setup(uint32_t frequency, float duty_cycle) {
+void hal_pwm_setup(uint32_t frequency, float duty_cycle) {
     current_freq = frequency;
     current_duty = duty_cycle;
 }
 
-uint32_t PWM_GetFrequency(void) {
+uint32_t hal_get_frequency(void) {
     return current_freq;
 }
 
-float PWM_GetDutyCycle(void) {
+float hal_get_duty_cycle(void) {
     return current_duty;
 }

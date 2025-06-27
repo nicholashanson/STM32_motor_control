@@ -1,14 +1,21 @@
 #ifndef PWM_CONTROL_H
 #define PWM_CONTROL_H
 
-#include <stdint.h>
+#include "pwm_interface.h"
 
 static uint32_t current_freq = 0;
-static float current_duty = 0.0f;
+static float current_duty = 0;
 
 uint16_t calculate_pwm_duty_cycle(uint8_t percent, uint16_t arr);
-void PWM_Setup(uint32_t frequency, float duty_cycle);
-uint32_t PWM_GetFrequency(void);
-float PWM_GetDutyCycle(void);
 
-#endif // PWM_CONTROL_H
+void hal_pwm_setup(uint32_t frequency, float duty_cycle);
+uint32_t hal_get_frequency(void);
+float hal_get_duty_cycle(void);
+
+const PWM_Interface STM32_PWM_Driver = {
+    .setup = hal_pwm_setup,
+    .get_frequency = hal_get_frequency,
+    .get_duty_cycle = hal_get_duty_cycle,
+};
+
+#endif
