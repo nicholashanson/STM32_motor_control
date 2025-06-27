@@ -12,9 +12,6 @@ UART is set up for integration with QEMU.
 
 ## Design Goals
 
-## Project Development Goals
----
-
 ### 1. Hardware Abstraction Layer (HAL)
 
 **Objective:**  
@@ -27,7 +24,6 @@ By abstracting hardware, we make core logic portable, testable, and reusable acr
 - [ ] Define HAL interfaces (e.g. `pwm_interface.h`, `uart_interface.h`)
 - [ ] Replace direct calls to `HAL_*` / `LL_*` with abstracted methods
 - [ ] Ensure core algorithms rely only on interfaces, not hardware
----
 
 ### 2. Dependency Injection
 
@@ -41,8 +37,6 @@ Makes it easy to swap real hardware with mocks or stubs for testing and simulati
 - [ ] Refactor modules to receive hardware accessors via parameters
 - [ ] Remove hardcoded peripheral calls from business logic
 - [ ] Provide constructor/init-style functions that accept interface pointers
-
----
 
 ### 3. Strategic Use of Test Doubles
 
