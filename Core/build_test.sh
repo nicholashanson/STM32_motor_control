@@ -7,6 +7,8 @@ HAL_DRIVER_INC="../Drivers/STM32F4xx_HAL_Driver/Inc"
 HAL_DRIVER_SRC="../Drivers/STM32F4xx_HAL_Driver/Src"
 CMSIS_DEVICE_INC="../Drivers/CMSIS/Device/ST/STM32F4xx/Include"
 CMSIS_INC="../Drivers/CMSIS/Include"
+TEST_INC="../Test/Inc"
+UNITY_INC="../Unity"
 
 # Startup file and linker script
 STARTUP_FILE="Startup/startup_stm32f407vgtx.s"
@@ -19,7 +21,7 @@ SPEC_FLAGS="-specs=nosys.specs -u _printf_float"  # disable semihosting
 
 # Compiler flags
 CFLAGS="-g -O0 -mcpu=cortex-m4 -mthumb"
-INCLUDES="-I$CORE_INC -I$HAL_DRIVER_INC -I$CMSIS_DEVICE_INC -I$CMSIS_INC"
+INCLUDES="-I$CORE_INC -I$HAL_DRIVER_INC -I$CMSIS_DEVICE_INC -I$CMSIS_INC -I$TEST_INC -I$UNITY_INC"
 
 # Ensure build directory exists
 mkdir -p "$BUILD_DIR"
@@ -58,7 +60,19 @@ echo "5) Compiling unity..."
 arm-none-eabi-gcc $CFLAGS $INCLUDES -DSTM32F407xx \
   -c ../Unity/unity.c -o "$BUILD_DIR/unity.o"
 
-echo "6) Linking all objects into ELF..."
+echo "6) Compiling motor_control..."
+arm-none-eabi-gcc $CFLAGS $INCLUDES -DSTM32F407xx \
+  -c Src/motor_control.c -o "$BUILD_DIR/motor_control.o"
+
+echo "7) Compiling pwm_control..."
+arm-none-eabi-gcc $CFLAGS $INCLUDES -DSTM32F407xx \
+  -c Src/pwm_control.c -o "$BUILD_DIR/pwm_control.o"
+
+echo "8) Compiling test_motor_control..."
+arm-none-eabi-gcc $CFLAGS $INCLUDES -DSTM32F407xx \
+  -c ../Test/Src/test_motor_control.c -o "$BUILD_DIR/test_motor_control.o"
+
+echo "9) Linking all objects into ELF..."
 arm-none-eabi-gcc $CFLAGS $SPEC_FLAGS \
   "$STARTUP_FILE" \
   "$BUILD_DIR/system.o" \
@@ -67,7 +81,10 @@ arm-none-eabi-gcc $CFLAGS $SPEC_FLAGS \
   "$BUILD_DIR/test_main.o" \
   "$BUILD_DIR/syscalls.o" \
   "$BUILD_DIR/sysmem.o" \
-   "$BUILD_DIR/unity.o" \
+  "$BUILD_DIR/unity.o" \
+  "$BUILD_DIR/motor_control.o" \
+  "$BUILD_DIR/pwm_control.o" \
+  "$BUILD_DIR/test_motor_control.o" \
   $HAL_OBJECT_FILES \
   -T"$LINKER_SCRIPT" \
   -Wl,--no-gc-sections \

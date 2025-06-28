@@ -12,10 +12,6 @@ void hal_pwm_setup(uint32_t frequency, float duty_cycle);
 uint32_t hal_get_frequency(void);
 float hal_get_duty_cycle(void);
 
-const PWM_Interface STM32_PWM_Driver = {
-    .setup = hal_pwm_setup,
-    .get_frequency = hal_get_frequency,
-    .get_duty_cycle = hal_get_duty_cycle,
-};
+extern const PWM_Interface STM32_PWM_Driver;
 
-#endif
+#endif // PWM_CONTROL_H
