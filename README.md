@@ -90,3 +90,12 @@ The goal is to make the motor control meet the requirements of the system shown 
 <p align="center">
   <img src="Images/integrated_system.jpg" width="400">
 </p>
+
+1. **Power Source**: Three-phase AC motor
+2. **Belt-drive**: Provides speed reduction and absorbs vibrations from the motor.
+3. **Bevel-gear transmission**: Provides both speed (RPM) reduction and a change in the direction of power transmission.
+4. **Pinion gear + slew-bearing with integrated ring gear**: This is the target output of the power-train.
+5. **Rotary encoder**: Sensor to measure the rotation of the ring gear.
+6. **MCU**: microcontroller for motor-control.
+7. **Motor-drive**: Three-phase inverter composed of six power transistors, used to generate variable-frequency AC for motor control.
+8. **CPU**: multi-core CPU that provides movement commands to the MCU.
