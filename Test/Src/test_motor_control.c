@@ -15,3 +15,5 @@ void test_motor_sets_50_percent_speed(void) {
     TEST_ASSERT_EQUAL_UINT32(1000, TestPWMDriver->get_frequency());
     TEST_ASSERT_FLOAT_WITHIN(0.01f, 0.5f, TestPWMDriver->get_duty_cycle());
 }
+
+

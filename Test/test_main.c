@@ -27,6 +27,7 @@
 #include "../Unity/unity.h"
 #include "pwm_control.h"
 #include "test_motor_control.h"
+#include "test_pwm.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -127,6 +128,7 @@ int main(void)
     /* USER CODE BEGIN 3 */
     UNITY_BEGIN();
     RUN_TEST(test_motor_sets_50_percent_speed);
+    RUN_TEST(test_hal_pwm_setup_configures_timer_correctly);
     int result = UNITY_END();
 
     while (1);

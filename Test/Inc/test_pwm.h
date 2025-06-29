@@ -1,10 +1,10 @@
 #ifndef TEST_PWM_H
 #define TEST_PWM_H
 
-#include "mock_pwm.h"
+#include "unity.h"
+#include "stm32f4xx_hal.h"
+#include "pwm_control.h"
 
-void test_calculate_pwm_duty_cycle_zero(void);
-void test_calculate_pwm_duty_cycle_half(void);
-void test_calculate_pwm_duty_cycle_full(void);
+void test_hal_pwm_setup_configures_timer_correctly(void);
 
 #endif // TEST_PWM_H
