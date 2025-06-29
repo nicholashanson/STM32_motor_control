@@ -2,6 +2,7 @@
 #define PWM_CONTROL_H
 
 #include "pwm_interface.h"
+#include "stm32f4xx_hal.h"
 
 static uint32_t current_freq = 0;
 static float current_duty = 0;
