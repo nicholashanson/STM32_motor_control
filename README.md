@@ -99,3 +99,7 @@ The goal is to make the motor control meet the requirements of the system shown 
 6. **MCU**: microcontroller for motor-control.
 7. **Motor-drive**: Three-phase inverter composed of six power transistors, used to generate variable-frequency AC for motor control.
 8. **CPU**: multi-core CPU that provides movement commands to the MCU.
+
+### Ring-Gear Rotation Detection
+
+
