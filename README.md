@@ -102,7 +102,7 @@ The goal is to make the motor control meet the requirements of the system shown 
 
 ### Ring-Gear Rotation Detection
 <p align="center">
-  <img src="Images/ring_gear_rotation_detection.png" width="400">
+  <img src="Images/gear_rotation_detection.png" width="400">
 </p>
 
 
