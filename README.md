@@ -101,5 +101,8 @@ The goal is to make the motor control meet the requirements of the system shown 
 8. **CPU**: multi-core CPU that provides movement commands to the MCU.
 
 ### Ring-Gear Rotation Detection
+<p align="center">
+  <img src="Images/ring_gear_rotation_detection.png" width="400">
+</p>
 
 
